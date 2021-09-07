@@ -13,7 +13,7 @@ export CUDADIR=/usr/local/cuda/include/
 export USE_AVX=OFF
 export USE_NCCL=ON
 export USE_SYSTEM_NCCL=ON
-export NCCL_LIBRARY=
+export NCCL_LIBRARY=/usr/local/include
 export USE_LIBXSMM=OFF
 export USE_CUDA=ON
 
@@ -31,3 +31,17 @@ export PATH="${CUDA_HOME}/bin:${PATH}"
 # Update LD lib path:
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/home/${USER}/lib/:${CUDA_HOME}/lib64/:${CUDA_HOME}/lib/:${CUDA_HOME}/lib64:${CUDA_HOME}/extras/CUPTI/lib64"
 export LD_LIBRARY_PATH_MORE="${LD_LIBRARY_PATH}"
+
+# Turn off some warnings:
+# export USE_FBGEMM=OFF
+# export CFLAGS="-Wno-error=deprecated-declarations -Wno-error=dev"
+
+# The default numer of make jobs (4) causes compilation of some packages
+# to get killed on my machine, so I use a lower value. This is set with
+# env vars so it survives being invoked via `python setup.py`.
+# Alternative: maybe extend distutils by chaining with a cmd_class?
+# Kudos to Armin Ronacher: https://stackoverflow.com/a/680473
+export MAKEFLAGS="-j 2"
+export CMAKEFLAGS="-j 2"
+export MAX_JOBS=2
+
