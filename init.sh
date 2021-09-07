@@ -33,10 +33,10 @@ sudo apt-get install -y \
      gcc-11 g++-11 gfortran-11 \
      libboost-all-dev libboost-python-dev libboost-thread-dev \
      libcublas-dev libcublas10 \
+     libhdf5-dev \
      libopenblas-base libopenblas-dev \
      libopenmpi-dev \
      nvidia-jetpack cuda-toolkit-10-2 \
      ocl-icd-opencl-dev \
      python3.6 python3.8 python-dev python3-dev python3.6-dev python3.8-dev \
-     python3-h5py libhdf5-dev \
      python3-jsmin
